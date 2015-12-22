@@ -17,10 +17,9 @@ var server = http.createServer((req, res) => {
 		case 'POST':
 			req.on('data', (data) => {
 				let decoded = decodeURIComponent(data);
-				let result = decoded.split('=')[1];
-				console.info('[' + now + '] 投稿: ' + result);
+				console.info('[' + now + '] 投稿: ' + decoded);
 				res.write('<!DOCTYPE html><html lang="jp"><body><h1>' +
-					result + 'への投稿が完了しました</h1></body></html>');
+					decoded + 'が投稿されました</h1></body></html>');
 				res.end();
 			});
 			break;
