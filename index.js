@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
 			const fs = require('fs');
 			const rs = fs.createReadStream('./form.html');
 			//pipeがテキストだけだと少しわかりづらかったです。
-			//なんとなく例えばどういう状況なのかが少しら理ら理解しづらかった
+			//なんとなく例えばどういう状況なのかが少し理解しづらかった
 			//ファイルストリームに対してresを渡してるように見えてなんか気持ち悪い。
 			rs.pipe(res);
 			break;
