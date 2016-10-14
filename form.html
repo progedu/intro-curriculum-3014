@@ -6,11 +6,29 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
+	<h1>どれが食べたいですか？</h1>
 	<form method="post" action="/enquetes/yaki-shabu">
+		名前:<input type="text" name="name"><br>
 		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
 		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<input type="radio" name="yaki-shabu" value="牛丼" /> 牛丼
+		<input type="radio" name="yaki-shabu" value="生姜焼き定食" /> 生姜焼き定食
+		<input type="radio" name="yaki-shabu" value="松茸" /> 松茸
+		<input type="radio" name="yaki-shabu" value="味噌ラーメン" /> 味噌ラーメン
+		<input type="radio" name="yaki-shabu" value="ジャージャー麺" /> ジャージャー麺
+		<br>
+		色:<input type="color" name="color">
+		<br>
+		血液型:<select name="blood-type">
+			<option value="A">A</option>
+			<option value="B">B</option>
+			<option value="AB">AB</option>
+			<option value="O">O</option>
+		</select><br>
+		<input type="password" name="yaki-shabu" value="niconico" /> niconico
+		<br>
 		<button type="submit">投稿</button>
+		<input type="reset" value="取消">
 	</form>
 </body>
 
