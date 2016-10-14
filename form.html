@@ -4,14 +4,42 @@
 	<meta charset="UTF-8">
 	<title>アンケート</title>
 </head>
-
+<style>
+	*	{font-family:font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;}
+	body{background-color:#c5fbfb;}
+	.frm{background-color:#fff;margin:0 auto;width:400px;padding:30px 50px;border:2px #000 solid;border-radius: 30px;line-height:50px}
+</style>
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
-	</form>
+	<div class="frm">
+
+		<h1>どちらが食べたいですか？</h1>
+		<form method="post" action="/enquetes/yaki-shabu">
+				名前:<input type="text" name="name" ><br/>
+				<input type="radio" name="gender" value="男"/>男性
+				<input type="radio" name="gender" value="女"/>女性
+				<input type="radio" name="gender" value="unsexual"/>言い表しがたい
+				<br>
+				年齢層(胃が弱りますよねぇ年取ると。)
+				<select name="age" id="age">
+					<option value="〜19">10代</option>
+					<option value="20〜29" selected>20代</option>
+					<option value="30〜39">30代</option>
+					<option value="40〜49">40代</option>
+					<option value="50〜59">50代</option>
+					<option value="60〜69">60代</option>
+					<option value="70〜">70代以上</option>
+				</select>
+				<br>
+				<input type="radio" name="yaki-shabu" value="すし" /> すし
+				<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
+				<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+				
+				
+				<br>
+				<button type="submit">投稿</button>
+
+		</form>
+	</div>
 </body>
 
 </html>
