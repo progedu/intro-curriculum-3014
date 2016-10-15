@@ -2,16 +2,209 @@
 <html lang="jp">
 <head>
 	<meta charset="UTF-8">
-	<title>アンケート</title>
+	<title>N予備校「プログラミング」復習まがいのページ（Node.js 以降）</title>
+	<style>
+		.hide {visibility: hidden;}
+	</style>
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+	<h1>過去の授業リスト</h1>
+	<p>
+	<!-- ▼授業リストのフォーム▼ -->
+	<form method="post" action="/programming/lesson/">
+		名前：<input type="text" name="name"><br>
+		<select name="part_num" id="part_num">
+				<optgroup label="Node.js の使い方">
+				<option value="part_34">◆ Node.js（8/30）</option>
+				<option value="part_35">◆ 集計処理を行うプログラム（9/2）</option>
+				<option value="part_36">◆ アルゴリズムの改善（9/6）</option>
+				<option value="part_37">◆ ライブラリ（9/9）</option>
+			</optgroup>
+			<optgroup label="Slack とボットとモジュール">
+				<option value="part_38">◆ Slack のボット開発（9/13）</option>
+				<option value="part_39">◆ Hubot と Slack アダプタ（9/16）</option>
+				<option value="part_40">◆ モジュール化された処理（9/20）</option>
+				<option value="part_41">◆ ボットインタフェースとの連携（9/23）</option>
+			</optgroup>
+			<optgroup label="Web サーバーと特徴">
+				<option value="part_42">◆ 同期 I/O と非同期 I/O （9/27）</option>
+				<option value="part_43">◆ 例外処理（9/30）</option>
+				<option value="part_44">◆ HTTP サーバー（10/4）</option>
+				<option value="part_45">◆ ログ（10/7）</option>
+				<option value="part_46">◆ HTTP のメソッド（10/11）</option>
+				<option value="part_47">◆ HTML のフォーム（10/14）</option>
+			</optgroup>
+		</select>
+		<input type="hidden" id="url" name="url" value="url"></input>
+		<button type="submit">移動</button>
 	</form>
+	<!-- ▲授業リストのフォーム▲ -->	
+	</p>
+	<!-- ▼各授業の要約▼ -->
+	<div>
+		<div id="summary34">
+			<h3>Node.js</h3>
+			<ul>
+				<li>サーバーサイドプログラミングで Web サービスの開発ができる</li>
+				<li>Node.js と そのバージョン管理ツール のインストール</li>
+				<li>REPL の使い方や js ファイルの実行の仕方</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/97"></a></li>
+			</ul>
+		</div>
+		<div id="summary35">
+			<h3>集計処理を行うプログラム</h3>
+			<ul>
+				<li>CSV ファイルからデータを読み取る</li>
+				<li>非同期で情報を扱うための Stream について</li>
+				<li>連想配列や Map オブジェクトとデータの並び替え</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/98"></a></li>
+			</ul>
+		</div>
+		<div id="summary36">
+			<h3>アルゴリズムの改善</h3>
+			<ul>
+				<li>フィボナッチ数列と再帰</li>
+				<li>Node.js で実行時間を測定</li>
+				<li>指数オーダーと線形オーダー</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/99"></a></li>
+			</ul>
+		</div>
+		<div id="summary37">
+			<h3>ライブラリ</h3>
+			<ul>
+				<li>npm</li>
+				<li>グローバルインストールとローカルインストール</li>
+				<li>npm パッケージを作り、インストール</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/100"></a></li>
+			</ul>
+		</div>
+		<div id="summary38">
+			<h3>Slack のボット開発</h3>
+			<ul>
+				<li>Slack の登録と使い方</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/101"></a></li>
+			</ul>
+		</div>
+		<div id="summary39">
+			<h3>Hubot と Slack アダプタ</h3>
+			<ul>
+				<li>hubot を作り、ローカルで動かす</li>
+				<li>slack で hubot を動かす</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/102"></a></li>
+			</ul>
+		</div>
+		<div id="summary40">
+			<h3>モジュール化された処理</h3>
+			<ul>
+				<li>CRUD</li>
+				<li>タスク管理の npm パッケージ todo を作る</li>
+				<li>アロー関数など</li>
+			<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/103"></a></li>
+			</ul>
+		</div>
+		<div id="summary41">
+			<h3>ボットインタフェースとの連携</h3>
+			<ul>
+				<li>正規表現で todo パッケージを改良</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/104"></a></li>
+			</ul>
+		</div>
+		<div id="summary42">
+			<h3>同期 I/O と非同期 I/O</h3>
+			<ul>
+				<li>非同期 I/O でファイルに書き出した時の動作</li>
+				<li>同期 I/O でファイルに書き出した時の動作</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/105"></a></li>
+			</ul>
+		</div>
+		<div id="summary43">
+			<h3>例外処理</h3>
+			<ul>
+				<li>タスクを JSON で書き出す</li>
+				<li>JSON ファイルを読み込む</li>
+				<li>try-catch 文</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/106"></a></li>
+			</ul>
+		</div>
+		<div id="summary44">
+			<h3>HTTP サーバー</h3>
+			<ul>
+				<li>Web サーバーの仕組み</li>
+				<li>HTTP サーバーを作る</li>
+				<li>ユーザーエージェントについて</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/107"></a></li>
+			</ul>
+		</div>
+		<div id="summary45">
+			<h3>ログ</h3>
+			<ul>
+				<li>コンソールにログを出力する</li>
+				<li>ログレベル</li>
+				<li>エラーログを出力する</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/108"></a></li>
+			</ul>
+		</div>
+		<div id="summary46">
+			<h3>HTTP のメソッド</h3>
+			<ul>
+				<li>GET や POST メソッド</li>
+				<li>HTTP メソッドを実装</li>
+				<li>それぞれの送信結果のログ</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/109"></a></li>
+			</ul>
+		</div>
+		<div id="summary47">
+			<h3>HTML のフォーム</h3>
+			<ul>
+				<li>フォームページ</li>
+				<li>HTTP メソッドを使いデータを送受信する</li>
+				<li class="hide"><a href="http://www.nnn.ed.nico/contents/guides/110"></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- ▲各授業の要約▲ -->
+	<script>
+		onload = function () {
+			// まず初期状態の設定
+			display_none();
+			var option_elements = document.getElementsByTagName('option');	// 戻り値：NodeList
+			// 先頭の option 要素の value を得て、そのナンバー部分を抜き出す
+			var start_num = option_elements[0].value.split('_')[1] *1;
+			// 先頭の要約 DIV 要素を表示させる
+			document.getElementById("summary" + start_num).style.display = 'block';
+			// サーバーに送る url をフォーム内の input 要素の value に代入する
+			document.getElementById('url').value = 
+				document.getElementById("summary" + start_num).getElementsByTagName('A')[0].href;
+			
+			// select 要素に change のイベントリスナーを割り当てる
+			document.getElementById('part_num').addEventListener('change', 
+				function () {
+					display_none(); 
+					// selected されている option 要素の value を得て、そのナンバー部分だけ抜き出す
+					var num = (this.options[this.selectedIndex].value).split('_')[1];	// this が select 要素
+					// selected されているナンバーとペアの要約 DIV 要素を得る
+					var target = document.getElementById("summary" + num);
+					target.style.display = 'block';
+					// target 以下の a 要素の href 属性の値を得る（サーバーに送るためのURL）
+					var target_url = target.getElementsByTagName('A')[0].href;
+					document.getElementById('url').value = target_url;
+				}, false);		
+		}
+		
+		// 「各授業の要約」のDIV要素の表示を全て消す関数
+		function display_none() {
+			var option_elements = document.getElementsByTagName('option');
+			var start_num = option_elements[0].value.split('_')[1] *1;
+			for (var i = start_num; i < option_elements.length + start_num; i++) {
+				var node = document.getElementById("summary" + i);
+				node.style.display = 'none';
+			}
+		}
+
+	// 愛用PCのOSをアップグレードできず古いままなので、当然、ブラウザのバージョンも古く、よく使う safari が const などをサポートしていなかったので var で通しました。
+
+	</script>
 </body>
 
 </html>
