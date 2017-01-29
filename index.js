@@ -18,8 +18,15 @@ const server = http.createServer((req, res) => {
 			req.on('data', (data) => {
 				const decoded = decodeURIComponent(data);
 				console.info('[' + now + '] 投稿: ' + decoded);
-				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +
-					decoded + 'が投稿されました</h1></body></html>');
+
+				if(decoded.slice(-3) === 'らない') {
+					res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>絶対許さない！</h1></body></html>')
+				}else if(decoded.slice(-1) === '=') {
+					res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>絶対許さない！調べて書け！</h1></body></html>')
+				}else {
+					res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' + decoded + '<br>回答ありがとうございます。ＷＢＣ王者奪還出来るといいですね。<br>なお監督は小久保ぇ・・・</h1></body></html>');
+				}
+
 				res.end();
 			});
 			break;
