@@ -18,7 +18,6 @@ const server = http.createServer((req, res) => {
 			req.on('data', (data) => {
 				const decoded = decodeURIComponent(data);
 				const decoded_array = decoded.split("&");
-				let data_array =[];
 				let tx = {name : '匿名子', yaki_shabu : '秘密'};
 				for (let i=0; i<decoded_array.length; i++){
 					let data_array = decoded_array[i].split("=");
