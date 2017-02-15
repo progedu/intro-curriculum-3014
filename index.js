@@ -23,10 +23,10 @@ const server = http.createServer((req, res) => {
 					let data_array = decoded_array[i].split("=");
 					switch (data_array[0]){
 						case 'name' :
-							tx.name = (data_array[1] || tx.name)
+							tx.name = (data_array[1] || tx.name);
 							break;
 						case 'yaki-shabu':
-							tx.yaki_shabu = (data_array[1] || tx.yaki_shabu)
+							tx.yaki_shabu = (data_array[1] || tx.yaki_shabu);
 					}
 				}
 				console.info('[' + now + '] 投稿: ' + decoded);
