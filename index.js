@@ -17,8 +17,8 @@ const server = http.createServer((req, res) => {
 			req.on('data', (data) => {
 				const decoded = decodeURIComponent(data);
 				console.info('[' + now + '] 投稿: ' + decoded);
-				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +
-					decoded + 'が投稿されました</h1></body></html>');
+				const req_url = decoded.split('&')[2].split('=')[1];
+				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +	decoded + 'が投稿されました</h1><script>window.location.href = "' + req_url + '";</script></body></html>');
 				res.end();
 			});
 			break;
