@@ -16,9 +16,22 @@ const server = http.createServer((req, res) => {
 		case 'POST':
 			req.on('data', (data) => {
 				const decoded = decodeURIComponent(data);
+				const decoded_array = decoded.split("&");
+				let tx = {name : '匿名子', yaki_shabu : '秘密'};
+				for (let i=0; i<decoded_array.length; i++){
+					let data_array = decoded_array[i].split("=");
+					switch (data_array[0]){
+						case 'name' :
+							tx.name = (data_array[1] || tx.name);
+							break;
+						case 'yaki-shabu':
+							tx.yaki_shabu = (data_array[1] || tx.yaki_shabu);
+					}
+				}
 				console.info('[' + now + '] 投稿: ' + decoded);
 				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +
-					decoded + 'が投稿されました</h1></body></html>');
+					tx.name+'の食べたいものは、'+
+					tx.yaki_shabu + 'であると申告されました</h1></body></html>');
 				res.end();
 			});
 			break;
