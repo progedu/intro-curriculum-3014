@@ -6,11 +6,18 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+	<h1>WBC日本代表の4番にふさわしいと思う選手は？</h1>
+	<form method="post" action="/enquetes/wbc-4thInJapan">
+		<input type="radio" name="WBC日本の4番候補" value="筒香嘉智" /> 筒香嘉智
+		<input type="radio" name="WBC日本の4番候補" value="中田翔" /> 中田翔
+		<input type="radio" name="WBC日本の4番候補" value="坂本勇人" /> 坂本勇人
+		<input type="radio" name="WBC日本の4番候補" value="山田哲人" /> 山田哲人
+		<input type="radio" name="WBC日本の4番候補" value="内川聖一" /> 内川聖一
+		<input type="radio" name="WBC日本の4番候補" value="大谷翔平" /> 大谷翔平
+		<p>
+			ついでに期待の投手も書いてみましょう（知らないは絶許）: <input type="text" name="期待の投手">
+			<button type="submit">投稿</button>
+		</p>
 	</form>
 </body>
 
