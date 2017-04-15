@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
 				const decoded = decodeURIComponent(data);
 				console.info('[' + now + '] 投稿: ' + decoded);
 				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +
-					decoded + 'が投稿されました</h1></body></html>');
+					decoded + '</h1></body></html>');
 				res.end();
 			});
 			break;
@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
 }).on('clientError', (e) => {
 	console.error('[' + new Date() + '] Client Error', e);
 });
-const port = 8000;
+const port = 8080;
 server.listen(port, () => {
 	console.info('[' + new Date() + '] Listening on ' + port);
 });
