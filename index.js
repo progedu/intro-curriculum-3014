@@ -11,6 +11,9 @@ const server = http.createServer((req, res) => {
 		case 'GET':
 			const fs = require('fs');
 			const rs = fs.createReadStream('./form.html');
+			//pipeがテキストだけだと少しわかりづらかったです。
+			//なんとなく例えばどういう状況なのかが少し理解しづらかった
+			//ファイルストリームに対してresを渡してるように見えてなんか気持ち悪い。
 			rs.pipe(res);
 			break;
 		case 'POST':
@@ -19,6 +22,7 @@ const server = http.createServer((req, res) => {
 				console.info('[' + now + '] 投稿: ' + decoded);
 				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +
 					decoded + 'が投稿されました</h1></body></html>');
+				//decodedを切り分ける方法が知りたいです！後々出てくることを期待してググらないでおきますw
 				res.end();
 			});
 			break;
