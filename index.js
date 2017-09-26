@@ -17,8 +17,19 @@ const server = http.createServer((req, res) => {
 			req.on('data', (data) => {
 				const decoded = decodeURIComponent(data);
 				console.info('[' + now + '] 投稿: ' + decoded);
-				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body><h1>' +
-					decoded + 'が投稿されました</h1></body></html>');
+				let params = decoded.split('&');
+				let paramArray = [];
+				for (let i = 0; i < params.length; i++) {
+					let param = params[i].split('=');
+					paramArray[param[0]] = param[1];
+				}
+				console.info(paramArray['yaki-shabu']);
+				console.info(paramArray['name']);
+				res.write('<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"></head><body>'
+					+ "<h1>投稿ありがとうございました</h1>"
+					+ "回答: " + paramArray['yaki-shabu'] + "<br>"
+					+ "お名前: " + paramArray['name'] + "<br>"
+					+ "</body></html>");
 				res.end();
 			});
 			break;
