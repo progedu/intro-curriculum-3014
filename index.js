@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
 			break;
 		case 'POST':
 			let body = [];
-			req.on('data', (data) => {
+			req.on('data', (chunk) => {
 				body.push(chunk);
 			}).on('end', () => {
 				body = Buffer.concat(body).toString();
