@@ -4,12 +4,24 @@
 	<meta charset="UTF-8">
 	<title>アンケート</title>
 </head>
-
+<style>
+	form{
+		margin: 20px;
+	}
+	input{
+		margin: 20px 10px;
+	}
+	button{
+		margin: 10px 0;
+	}
+</style>
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+	<h1>どれが食べたいですか？</h1>
+	<form method="post" action="/enquetes/yaki-shabu-sushi">
+		お名前 <input type="text" name="name"><br>
+		<input type="radio" name="yaki-shabu-sushi" value="焼き肉" /> 焼き肉
+		<input type="radio" name="yaki-shabu-sushi" value="寿司" /> 寿司
+		<input type="radio" name="yaki-shabu-sushi" value="しゃぶしゃぶ" /> しゃぶしゃぶ<br>
 		<button type="submit">投稿</button>
 	</form>
 </body>
