@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="jp">
-
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>アンケート</title>
 </head>
 
 <body>
-    <h1>どちらが食べたいですか？</h1>
-    <form method="post" action="/enquetes/yaki-shabu">
-        <input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-        <input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-        <br>名前欄: <input type="text" name="name">
-        <button type="submit">投稿</button>
-    </form>
+<h1>秋と言えば？</h1>
+<form method="post" action="/enquetes/autumn">
+
+    <input type="radio" name="answer" value="運動の秋"> 運動の秋
+
+    <input type="radio" name="answer" value="食欲の秋"> 食欲の秋
+
+    <input type="radio" name="answer" value="竹城"> 竹城
+    
+<br><hr><br>
+    <input type="text" name="name">名前
+
+    <button type="submit">投稿</button>
+
+</form>
 </body>
 
 </html>
