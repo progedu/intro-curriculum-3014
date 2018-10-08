@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
 	<meta charset="UTF-8">
 	<title>アンケート</title>
@@ -8,9 +9,25 @@
 <body>
 	<h1>どちらが食べたいですか？</h1>
 	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+		<div style="padding: 10px; margin-bottom: 10px; border: 2px dashed #333333;">
+
+			<label><input type="radio" name="yaki-shabu" value="焼き肉" required /> 焼き肉</label>
+			<label><input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" required /> しゃぶしゃぶ</label>
+		</div>
+		<br>
+		<label>名前: <input type="text" name="name"></label>
+		<label>　性別: <input type="radio" name="sex" value="男">男</label>
+		<label><input type="radio" name="sex" value="女">女</label>
+		<br>
+		<label>年齢: <input type="radio" name="age" value="10">10代</label>
+		<label>年齢: <input type="radio" name="age" value="20">20代</label>
+		<label>年齢: <input type="radio" name="age" value="30">30代</label>
+		<label>年齢: <input type="radio" name="age" value="40">40代</label>
+		<label>年齢: <input type="radio" name="age" value="50">50代</label>
+		<label>年齢: <input type="radio" name="age" value="60">60代〜</label>
+		<br>
+
+		<button type="submit">投稿</button> <input type="reset" value="リセット">
 	</form>
 </body>
 
