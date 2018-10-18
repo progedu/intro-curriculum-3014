@@ -6,10 +6,16 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
+	<h1>どちらが好きですか？</h1>
+	<form method="post" action="/enquetes/favorite">
+		名前: <input type="text" name="name">
+		<br>
 		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
 		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<br>
+		<input type="radio" name="comic-anime" value="マンガ" /> マンガ
+		<input type="radio" name="comic-anime" value="アニメ" /> アニメ<br>
+		好きなマンガ・アニメ: <input type="text" name="favorite"><br>
 		<button type="submit">投稿</button>
 	</form>
 </body>
