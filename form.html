@@ -8,8 +8,11 @@
 <body>
 	<h1>どちらが食べたいですか？</h1>
 	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		名前: <input type="text" name="name"><br>
+		パスワード： <input type="password" name="pass"><br>
+		<input type="radio" name="yaki-shabu" value="焼き肉"> 焼き肉
+		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ"> しゃぶしゃぶ<br>
+		ご意見：<input type="text" name="opinion" size="40" maxlength="20">
 		<button type="submit">投稿</button>
 	</form>
 </body>
