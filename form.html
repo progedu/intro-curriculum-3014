@@ -1,16 +1,115 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="UTF-8">
-	<title>アンケート</title>
+	<title>王様の耳はロバの耳</title>
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+	<h1>あなたが暴露したい事は何ですか？</h1>
+
+	<form action="cgi-bin/aaa.cgi" method="post">
+		<table border="10" cellpadding="2">
+
+			<tr>
+				<td align="right"><b>被害範囲：</b></td>
+				<td>
+					<input type="radio" name="damage range" value="家庭内">家庭内
+					<input type="radio" name="damage range" value="友人・知人間">友人・知人間
+					<input type="radio" name="damage range" value="所属内（クラス･勤務地など）">所属内（クラス･勤務地など）
+					<input type="radio" name="damage range" value="組織内（学校・会社など）">組織内（学校・会社など）<br>
+					<input type="radio" name="damage range" value="地区内（公民館単位）">地区内（公民館単位）
+					<input type="radio" name="damage range" value="市区町村内">市区町村内
+					<input type="radio" name="damage range" value="県内">県内
+					<input type="radio" name="damage range" value="地方内（関東・関西など）">地方内（関東・関西など）
+					<input type="radio" name="damage range" value="国内">国内
+					<input type="radio" name="damage range" value="国家間">国家間
+					<input type="radio" name="damage range" value="その他">その他
+
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>被害者：</b></td>
+				<td>
+					<input type="radio" name="victim" value="自分">自分
+					<input type="radio" name="victim" value="2～5人">2～5人
+					<input type="radio" name="victim" value="6～10人">6～10人
+					<input type="radio" name="victim" value="11人～50人">11人～50人
+					<input type="radio" name="victim" value="51人以上">51人以上<br>
+					<input type="radio" name="victim" value="地区全体（公民館単位）">地区全体（公民館単位）
+					<input type="radio" name="victim" value="市区町村全体">市区町村全体
+					<input type="radio" name="victim" value="県内全域">県内全域
+					<input type="radio" name="victim" value="地方内全域（関東・関西など）">地方内全域（関東・関西など）
+					<input type="radio" name="victim" value="国内全域">国内全域
+					<input type="radio" name="victim" value="国家間問題">国家間問題
+					<input type="radio" name="victim" value="その他">その他
+
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>被害の分類：</b></td>
+				<td>
+					<input type="radio" name="level" value="気分が悪い">気分が悪い
+					<input type="radio" name="level" value="死者が出そう">死者が出そう
+					<input type="radio" name="level" value="死者が出ている">死者が出ている
+					<input type="radio" name="level" value="2～10人死亡">2～10人死亡
+					<input type="radio" name="level" value="11人以上死亡">11人以上死亡
+					<input type="radio" name="level" value="千人単位で死亡">千人単位で死亡
+					<input type="radio" name="level" value="万人単位で死亡">万人単位で死亡<br>
+					<input type="radio" name="level" value="伝統の破壊">伝統の破壊
+					<input type="radio" name="level" value="歴史の改竄">歴史の改竄
+					<input type="radio" name="level" value="国家存亡の危機">国家存亡の危機
+					<input type="radio" name="level" value="その他">その他
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>暴露内容の要点：</b></td>
+				<td>30文字以内。伏せ字となりますので、メモ帳などで作成し、コピー＆ペーストでご入力下さい。<br>
+					<input type="password" name="Point of exposure content" placeholder="暴露内容の要点を入力" size="100" maxlength="30"></td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>暴露内容：</b></td>
+				<td>1000文字以内。伏せ字となりますので、メモ帳などで作成し、コピー＆ペーストでご入力下さい。<br>
+					<input type="password" name="Exposure content" placeholder="暴露内容を入力" size="200" maxlength="1000"></td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>公表の希望：</b></td>
+				<td>
+					<b>※選択必須</b>
+					<input required type="radio" name="Publication Hope" value="公表して欲しい">公表して欲しい
+					<input required type="radio" name="Publication Hope" value="公表の必要は無い">公表の必要は無い
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>メールアドレス：</b></td>
+				<td>上記項目で『公表して欲しい』を選んだ方のみで結構です。公表内容について、追ってご連絡致します。<br>
+					伏せ字となりますので、コピー＆ペーストでご入力下さい。<br>
+					<input type="password" name="mail address" placeholder="メールアドレスを入力" size="50"></td>
+			</tr>
+
+			<tr>
+				<td align="right"><b>証拠データ：</b></td>
+				<td>『いつ、何処で、誰が、どの様に、何をした』など、具体的に判るデータがあれば、お願いします。<br>
+					<input type="file" name="evidence1"><input type="file" name="evidence2"><input type="file"
+						name="evidence3"><input type="file" name="evidence4"><input type="file" name="evidence5"></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>
+					<button type="submit"><font size="5" color="#f44242">暴露</font></button>
+					<input type="reset" value="リセット">
+				</td>
+			</tr>
+
+		</table>
 	</form>
 </body>
 
