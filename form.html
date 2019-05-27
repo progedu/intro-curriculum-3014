@@ -6,12 +6,21 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
-	</form>
+	<div id="container" style="text-align:center;">
+		<h1>どちらが食べたいですか？</h1>
+		<form method="post" action="/enquetes/yaki-shabu">
+			<div id="first">
+				<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
+				<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+			</div>
+			<div id="second" style="margin-top:5px;">
+				名前: <input type="text" name="name" placeholder="例：山田太郎" style="font-size:16px;">
+			</div>
+			<div id="third" style="margin-top:5px;">
+					<button type="submit" style="font-size:18px;">投稿</button>
+			</div>
+		</form>
+	</div>
 </body>
 
 </html>
