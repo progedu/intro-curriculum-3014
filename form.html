@@ -2,14 +2,18 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>アンケート</title>
+	<title>questionnaire</title>
 </head>
 
-<body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+<body style="background-color: cornsilk">
+	<h1 style="font-family: serif">どれを食べたいですか？</h1>
+	<form method="post" action="/enquetes/want-eat">
+		<input type="radio" name="want-eat" value="焼き肉" /> 焼き肉
+		<input type="radio" name="want-eat" value="寿司" /> 寿司
+		<input type="radio" name="want-eat" value="焼き鳥"/> 焼き鳥
+		<input type="radio" name="want-eat" value="ラーメン"/> ラーメン
+		<br> </br>
+		名前:<input type="text" name="name">
 		<button type="submit">投稿</button>
 	</form>
 </body>
