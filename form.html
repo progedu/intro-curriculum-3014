@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="UTF-8">
 	<title>アンケート</title>
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+	<h1>今夜のメニューは何ですか？</h1>
+	<form method="post" action="/enquetes/kyouno-Dinner">
+		名前: <input type="text" name="name" size="15" maxlength="15">
+		年齢: <input type="number" name="age" min="12" max="120"><br>
+		性別: <input type="radio" name="man" value="男性" /> 男性
+		　　　 <input type="radio" name="woman" value="女性" /> 女性 <br>
+		<input type="checkbox" name="kyouno-Dinner" value="焼き肉" /> 焼き肉
+		<input type="checkbox" name="kyouno-Dinner" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<input type="checkbox" name="kyouno-Dinner" value="カレーライス" /> カレーライス
+		<input type="checkbox" name="kyouno-Dinner" value="ラーメン" /> ラーメン
+		<input type="checkbox" name="kyouno-Dinner" value="お寿司" /> お寿司 <br>
+		<textarea name="kanso" rows="5" cols="40">ここに感想を記入してください。</textarea><br>
 		<button type="submit">投稿</button>
+		<button type="reset">取り消し</button>
 	</form>
 </body>
 
