@@ -6,10 +6,13 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+	<h1>生まれ変わるなら</h1>
+	<form method="post" action="/enquetes/reborn">
+		名前: <input type="text" name="name"><br>
+		<input type="radio" name="reborn" value="男" /> 男
+		<input type="radio" name="reborn" value="女" /> 女
+		<input type="radio" name="reborn" value="猫"> 猫
+		<input type="radio" name="reborn" value="神"> 神
 		<button type="submit">投稿</button>
 	</form>
 </body>
