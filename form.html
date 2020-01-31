@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>アンケート</title>
+    <meta charset="UTF-8">
+    <title>アンケート</title>
+    <h1>どれが好きなとうふですか？</h1>
+    <form method="post" action="/enquetes/tofu">
+		名前を入力してくだしあ: <input type="text" name="name">
+		<br>
+		<br>
+        <input type="radio" name="tofu" value="焼き豆腐" />焼き豆腐
+        <input type="radio" name="tofu" value="うめ豆腐" />うめ豆腐
+        <input type="radio" name="tofu" value="抹茶豆腐" />抹茶豆腐
+        <input type="radio" name="tofu" value="うめ豆腐" />ごま豆腐
+		<br>
+		<button type="submit" style="width:384px; height:384px; font-size:48px;" >・ _ ・</button>
+    </form>
 </head>
-
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
-	</form>
+    
 </body>
-
 </html>
