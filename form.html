@@ -3,6 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>アンケート</title>
+	<style>
+        .textarea{
+            height: calc( 1.3em * 5 );
+  			line-height: 1.3;
+        }
+    </style>
 </head>
 
 <body>
@@ -10,6 +16,13 @@
 	<form method="post" action="/enquetes/yaki-shabu">
 		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
 		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<br>
+		<h3>そちらが好きな理由を４００字以上８００字以内で記述せよ</h3>
+		<br>
+		<input type="textarea" name="reason" rows=10 cols=80 class="textarea">
+		<br><br>
+		名前<input type="text" name="name">
+		<br>
 		<button type="submit">投稿</button>
 	</form>
 </body>
