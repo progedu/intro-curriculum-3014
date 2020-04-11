@@ -18,11 +18,14 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
-        const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
-        res.end();
+        console.log(body);//ここはバッファで入ってる。
+        body = Buffer.concat(body).toString();//ここで上のバッファを連結。
+        console.log(body);
+        const decoded = decodeURIComponent(body);//ここのデコードは焼肉だけ。
+				console.info('[' + now + '] 投稿: ' + decoded);
+				res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
+					  decoded + 'が投稿されました</h1></body></html>');
+				res.end();
       });
       break;
     default:
