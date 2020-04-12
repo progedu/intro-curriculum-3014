@@ -6,10 +6,12 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+	<h1>好きなスポーツは？</h1>
+	<form method="post" action="/enquetes/like-sports">
+		<input type="text" name="name">
+		<input type="radio" name="like-sports" value="野球" /> 野球
+		<input type="radio" name="like-sports" value="サッカー" /> サッカー
+		<input type="radio" name="like-sports" value="テニス">テニス
 		<button type="submit">投稿</button>
 	</form>
 </body>
