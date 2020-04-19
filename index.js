@@ -9,8 +9,8 @@ const server = http.createServer((req, res) => {
 
   switch (req.method) {
     case 'GET':
-      const fs = require('fs');
-      const rs = fs.createReadStream('./form.html');
+      const fs = require( 'fs' );
+      const rs = fs.createReadStream( './form.html' );
       rs.pipe(res);
       break;
     case 'POST':
@@ -18,16 +18,19 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
-        const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
+        const decode = decodeURIComponent(rawData);
+        const qs = require('querystring');
+        const answer = qs.parse( decode );
+        console.info('[' + now + '] 投稿: ' + decode);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          answer['name'] + 'さんは' + answer['yaki-shabu'] +'に投票しました</h1></body></html>');
         res.end();
       });
       break;
     default:
       break;
   }
+
 }).on('error', (e) => {
   console.error('[' + new Date() + '] Server Error', e);
 }).on('clientError', (e) => {
