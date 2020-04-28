@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>アンケート</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケート</title>
 </head>
-
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
-	</form>
+    <h1>どの季節が好きですか</h1>
+    <form method="post" action="/enquetes/kisetu">
+    <input type="radio" name="kisetu" value="春" /> 春
+    <input type="radio" name="kisetu" value="夏" /> 夏
+    <input type="radio" name="kisetu" value="秋" /> 秋
+　　<input type="radio" name="kisetu" value="冬" /> 冬
+　　<p>理由</p>
+	<p><textarea name="kanso" cols="30" rows="10"></textarea></p>
+　　<h3>任意記入欄</h3>
+	<p>名前：<input type="text" name="name"></p>
+	<p>
+	<input type="radio" name="sex" value="male">男
+	<input type="radio" name="sex" value="female">女
+	</p>
+    <br><button type="submit">投稿</button>
+</form>
 </body>
-
 </html>
