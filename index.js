@@ -14,25 +14,27 @@ const server = http.createServer((req, res) => {
       rs.pipe(res);
       break;
     case 'POST':
+      const  qs = require('querystring');
       let rawData = '';
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
         const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
+        const answer = qs.parse(decoded);
+        console.info('[' + now + '] 投稿: ' + decoded); //コンソールに表示/
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          answer['name'] +"さんは"+ answer['yaki-shabu'] + 'に投票しました</h1></body></html>');
         res.end();
       });
       break;
     default:
       break;
   }
-}).on('error', (e) => {
-  console.error('[' + new Date() + '] Server Error', e);
-}).on('clientError', (e) => {
-  console.error('[' + new Date() + '] Client Error', e);
-});
+  }).on('error', (e) => {
+    console.error('[' + new Date() + '] Server Error', e);
+  }).on('clientError', (e) => {
+    console.error('[' + new Date() + '] Client Error', e);
+  f});
 const port = 8000;
 server.listen(port, () => {
   console.info('[' + new Date() + '] Listening on ' + port);
