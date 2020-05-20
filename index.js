@@ -19,9 +19,13 @@ const server = http.createServer((req, res) => {
         rawData = rawData + chunk;
       }).on('end', () => {
         const decoded = decodeURIComponent(rawData);
+        const qs = require('querystring');
+        const answer = qs.parse(decoded);
+        const name = answer['name'];
+        const menu = answer['yaki-shabu'];
         console.info('[' + now + '] 投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+        name + 'さんは' + menu + 'に投票しました</h1></body></html>');
         res.end();
       });
       break;
