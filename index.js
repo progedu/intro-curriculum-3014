@@ -18,10 +18,12 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
+        const qs = require('querystring');
         const decoded = decodeURIComponent(rawData);
+        const query = qs.parse(decoded);
         console.info('[' + now + '] 投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          query['name'] + 'さんは' + query['yaki-shabu'] + 'に投票しました</h1></body></html>');
         res.end();
       });
       break;
