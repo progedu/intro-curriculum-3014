@@ -8,8 +8,17 @@
 <body>
 	<h1>どちらが食べたいですか？</h1>
 	<form method="post" action="/enquetes/yaki-shabu">
+		
+		名前：<input type="text" name="name" />
+		<br />
 		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
 		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<br />
+		【誰と食べたいですか？】(複数選択可) <br />
+		<input type="checkbox" name="tareto" value="恋人"/>恋人
+		<input type="checkbox" name="tareto" value="家族"/>家族
+		<input type="checkbox" name="tareto" value="友人"/>友人
+		<br />
 		<button type="submit">投稿</button>
 	</form>
 </body>
