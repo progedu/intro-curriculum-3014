@@ -18,11 +18,14 @@ const server = http.createServer((req, res) => {
 			req.on('data', (chunk) => {
 				body.push(chunk);
 			}).on('end', () => {
+				const qs = require('querystring');
 				body = Buffer.concat(body).toString();
 				const decoded = decodeURIComponent(body);
+				const answer = qs.parse(decoded);
 				console.info('[' + now + '] 投稿: ' + decoded);
 				res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-					  decoded + 'が投稿されました</h1></body></html>');
+				answer['name'] + 'さんは' + decoded +
+				'に投票しました</h1></body></html>');
 				res.end();
 			});
 			break;
