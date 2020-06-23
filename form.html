@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="UTF-8">
 	<title>アンケート</title>
@@ -8,8 +9,11 @@
 <body>
 	<h1>どちらが食べたいですか？</h1>
 	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<label for="name">名前：</label>
+		<input type="text" id="name" name="name">
+		<br>
+		<input type="radio" name="yaki-shabu" id="food1" value="焼き肉"><label for="food1">焼き肉</label>
+		<input type="radio" name="yaki-shabu" id="food2" value="しゃぶしゃぶ"><label for="food2">しゃぶしゃぶ</label>
 		<button type="submit">投稿</button>
 	</form>
 </body>
