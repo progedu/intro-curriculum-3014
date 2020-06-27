@@ -18,10 +18,12 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
-        const decoded = decodeURIComponent(rawData);
+        const decoded = decodeURIComponent(rawData);    // エンコードされたものをdecodeURIComponent()を用いて文字列に修正
+        const qs = require('querystring');    // querystringモジュールをインポート（parse関数を使えるようにしたかったため）
+        const answer = qs.parse(decoded);    // parseを用いて文字列を分解
         console.info('[' + now + '] 投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          answer['name'] + 'さんは' + answer['yaki-shabu']  + 'に投票しました</h1></body></html>');    // キーを利用して文字列を抽出
         res.end();
       });
       break;
