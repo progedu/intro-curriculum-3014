@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
 				console.info('[' + now + '] 投稿: ' + decoded);
 				
 				const qs = require('querystring');
-				const answer = qs.decode(rawData);
+				const answer = qs.decode(decoded);
 				console.log(answer['name']);
 				console.log(answer['yaki-shabu']);
 
