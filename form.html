@@ -4,13 +4,43 @@
 	<meta charset="UTF-8">
 	<title>アンケート</title>
 </head>
-
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+	<h1 style="color: #b411d4;">Which do you like?</h1>
+	<form method="post" action="/enquetes/which">
+		<input type="radio" name="which" value="きのこの山"> きのこの山
+		<input type="radio" name="which" value="たけのこの里"> たけのこの里
+		<p>
+			名前: <input type="text" name="name" placeholder="例: 火薬田 ドン">
+		</p>
+		<p>
+			性別: <input type="radio" name="sex" value="男"> 男性
+			<input type="radio" name="sex" value="女"> 女性
+		</p>
+		<p>
+			年齢: <select name="age">
+				<option value="0">10歳未満</option>
+				<option value="10">10代</option>
+				<option value="20">20代</option>
+				<option value="30">30代</option>
+				<option value="40">40代</option>
+				<option value="50">50代</option>
+				<option value="60">60代</option>
+				<option value="65">65歳〜</option>
+			</select>
+		</p>
+		<p>
+			【おまけアンケート】誰と食べたいですか？（複数選択可)<br>
+			<input type="checkbox" name="with" value="友達"> 友達
+			&emsp;
+			<input type="checkbox" name="with" value="恋人"> 恋人
+			&emsp;
+			<input type="checkbox" name="with" value="家族">家族
+			&emsp;
+			<input type="checkbox" name="with" value="ひとり">お一人さま
+		</p>
+		<p>
+			<button type="submit">ポチッとな</button>&emsp;<input type="reset" value="リセット">
+		</p>
 	</form>
 </body>
 
