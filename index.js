@@ -1,5 +1,6 @@
 'use strict';
 const http = require('http');
+const { join } = require('path');
 const server = http.createServer((req, res) => {
   const now = new Date();
   console.info('[' + now + '] Requested by ' + req.connection.remoteAddress);
@@ -14,14 +15,22 @@ const server = http.createServer((req, res) => {
       rs.pipe(res);
       break;
     case 'POST':
+     
       let rawData = '';
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
-        const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+        const qs = require('querystring');
+        console.info("1"+rawData);
+        const data = decodeURIComponent(rawData);
+        console.info("2"+data);
+        const answer=qs.parse(data);
+        console.info(answer['name']);
+
+
+        console.info('[' + now + '] 投稿: ' + data);
+        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' 
+          +answer['name']+'さんは'+answer['yaki-shabu'] + 'に投票しました</h1></body></html>');
         res.end();
       });
       break;
