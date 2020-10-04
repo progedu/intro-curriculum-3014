@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
   switch (req.method) {
     case 'GET':
       const fs = require('fs');
+      
       const rs = fs.createReadStream('./form.html');
       rs.pipe(res);
       break;
@@ -18,10 +19,12 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
-        const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
+        const qs = require('querystring');
+        const answer = qs.parse(rawData);
+        const body = answer['name'] + 'さんは' + answer['osushi-piza'] + 'に投票しました';
+        console.info('[' + now + '] ' + body)
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          body + '</h1></body></html>');
         res.end();
       });
       break;
