@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>アンケート</title>
+    <meta charset="UTF-8">
+    <title>応募フォーム</title>
+    <style>
+           body{background-color: #87CEFA;}
+           h1{text-align:center;}
+           form{text-align:center;}
+           span{color:tomato;font-size:120%;}
+    </style>
 </head>
-
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
-	</form>
-</body>
+    <h1>うまか<span>赤</span>をお選びください！</h1>
+    <h2><form method="post" action="/enquetes/tasty-red">
+        ニックネーム:<input type="text" name="ニックネーム"/><br>
+        <input type="radio" name="tasty-red" value="とまと" /> とまと
+        <input type="radio" name="tasty-red" value="すいか" /> すいか
+        <input type="radio" name="tasty-red" value="いちご" /> いちご <br>
+        <input type="radio" name="tasty-red" value="赤牛" /> 赤牛
+        <input type="radio" name="tasty-red" value="天草大王(赤鶏)" /> 天草大王(赤鶏)
+        <input type="radio" name="tasty-red" value="車海老" /> 車海老
+        <input type="radio" name="tasty-red" value="真鯛" /> 真鯛
+        <input type="radio" name="tasty-red" value="まだこ" /> まだこ <br>
+        <button type="submit">ご応募</button>
+      </form></h2>
+  
 
+</body>
 </html>

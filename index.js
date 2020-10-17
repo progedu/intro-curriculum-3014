@@ -15,25 +15,33 @@ const server = http.createServer((req, res) => {
       break;
     case 'POST':
       let rawData = '';
-      req.on('data', (chunk) => {
-        rawData = rawData + chunk;
-      }).on('end', () => {
-        const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
-        res.end();
+      req
+        .on('data', (chunk) => {
+          rawData = rawData + chunk;
+        })
+        .on('end', () => {
+          //const decoded = decodeURIComponent(rawData);
+          //console.info('[' + now + '] ご応募: ' + decoded);
+          const qs = require('querystring');
+          const answer = qs.parse(rawData);
+          const body = answer['ニックネーム'] + 'さんの' + answer['tasty-red'] + 'のご応募をお受けいたしました！';
+          console.info('[' + now + '] ' + body);
+          res.write('<!DOCTYPE html><html lang="ja"><body><h1 align="center">' +
+          body + '</h1></body></html>');
+          res.end();
       });
       break;
     default:
       break;
   }
-}).on('error', (e) => {
+})
+.on('error', e => {
   console.error('[' + new Date() + '] Server Error', e);
-}).on('clientError', (e) => {
+})
+.on('clientError', e => {
   console.error('[' + new Date() + '] Client Error', e);
 });
 const port = 8000;
 server.listen(port, () => {
-  console.info('[' + new Date() + '] Listening on ' + port);
+console.info('[' + new Date() + '] Listening on ' + port);
 });
