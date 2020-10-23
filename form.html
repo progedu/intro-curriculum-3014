@@ -6,10 +6,19 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+	<h1>どのケーキが食べたいですか？</h1>
+	<form method="post" action="/enquetes/cake">
+		<input type="checkbox" name="cake" value="ショートケーキ" /> ショートケーキ
+		<input type="checkbox" name="cake" value="チョコケーキ" /> チョコケーキ
+		<input type="checkbox" name="cake" value="モンブラン" /> モンブラン
+		<input type="checkbox" name="cake" value="ミルフィーユ" /> ミルフィーユ
+		<input type="checkbox" name="cake" value="シュークリーム" /> シュークリーム
+		<input type="checkbox" name="cake" value="チーズケーキ" /> チーズケーキ
+		<input type="checkbox" name="cake" value="ロールケーキ" /> ロールケーキ
+		<input type="checkbox" name="cake" value="シフォンケーキ" /> シフォンケーキ
+
+		名前:<input type="text" name="name" />
+
 		<button type="submit">投稿</button>
 	</form>
 </body>
