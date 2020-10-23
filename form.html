@@ -6,11 +6,20 @@
 </head>
 
 <body>
-	<h1>どちらが食べたいですか？</h1>
+	<h1>ご飯のオーダーシート</h1>
 	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+		名前 :<input type="text" name="name"><br>
+        <select name="time" >
+            <option value="朝ご飯">朝ご飯</option>
+            <option value="昼ご飯">昼ご飯</option>
+            <option value="晩ご飯">晩ご飯</option>
+        </select>
+        <br>
+        <input type="radio" name="yaki-shabu" value="白米">白米
+        <input type="radio" name="yaki-shabu" value="焼き肉"> 焼き肉
+        <input type="radio" name="yaki-shabu" value="しゃぶしゃぶ"> しゃぶしゃぶ <br>
+        
+        <button type="submit">投稿</button>
 	</form>
 </body>
 
