@@ -5,12 +5,20 @@
 	<title>アンケート</title>
 </head>
 
-<body>
-	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+<body style="background-color: rgb(36, 35, 35); color: floralwhite;">
+	<h1>どちらを使っていますか？</h1>
+	<form method="post" action="/enquetes/osForm">
+		<span>お名前:</span>
+		<input type="text" name="name" />
+		<br>
+		<span>解答</span>
+		<input type="radio" name="osForm" value="Windows" /> Windows
+		<input type="radio" name="osForm" value="macOS" /> macOS
+		<input type="radio" name="osForm" value="macOS" /> linux
+		<input type="radio" name="osForm" value="macOS" /> iOS
+		<input type="radio" name="osForm" value="macOS" /> Android
+		<br>
+		<button type="submit">そーしん!</button>
 	</form>
 </body>
 
