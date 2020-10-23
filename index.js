@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
         const answer = qs.parse(decoded);
         console.info('[' + now + '] 投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          answer['name'] + 'さんが' + answer['yaki-shabu'] + 'に投稿しました</h1></body></html>');
+          answer['name'] + 'さんがハロウィンのために' + answer['trick_or_treat'] + 'しました</h1></body></html>');
         res.end();
       });
       break;
