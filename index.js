@@ -22,36 +22,30 @@ const server = http.createServer((req, res) => {
         const decoded = decodeURIComponent(rawData);
         const answer = qs.parse(decoded);
         console.info('[' + now + '] 投稿: ' + decoded);
+
+        let message = "";
         switch (answer['kinoko-takenoko']) {
-          case 'たけのこの里':
-          res.write(`
-              <!DOCTYPE html>
-              <html lang="ja">
-                <body>
-                  <h1>
-                  ${answer['name']} さんが ${answer['kinoko-takenoko']} に投稿しました。<br>
-                  あなたの味覚は正常です。
-                  </h1>
-                </body>
-              </html>
-              `);
-          break;
-          case 'きのこの山':
-          res.write(`
-              <!DOCTYPE html>
-              <html lang="ja">
-                <body>
-                  <h1>
-                  ${answer['name']} さんが ${answer['kinoko-takenoko']} に投稿しました。<br>
-                  あなたの味覚は危険な状態です。
-                  </h1>
-                </body>
-              </html>
-              `);
-          break;
-          default:
-          break;
-        }
+            case 'たけのこの里':
+            message = "あなたの味覚は正常です"
+            break;
+            case 'きのこの山':
+            message = "あなたの味覚は危険な状態です"
+            break;
+            default:
+            message = "あなたは決断できない意気地なしです"  
+              break;
+            }
+            res.write(`
+                <!DOCTYPE html>
+                <html lang="ja">
+                  <body>
+                    <h1>
+                    ${answer['name']} さんが ${answer['kinoko-takenoko']} に投稿しました。<br>
+                    ${message}
+                    </h1>
+                  </body>
+                </html>
+                `);
         res.end();
       });
       break;
