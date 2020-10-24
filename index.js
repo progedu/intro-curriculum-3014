@@ -26,13 +26,16 @@ const server = http.createServer((req, res) => {
         let message = "";
         switch (answer['kinoko-takenoko']) {
             case 'たけのこの里':
-            message = "あなたの味覚は正常です"
+            message = `${answer['name']} さんが ${answer['kinoko-takenoko']} に投票しました。<br>
+                        あなたの味覚は正常です`
             break;
             case 'きのこの山':
-            message = "あなたの味覚は危険な状態です"
+            message = `${answer['name']} さんが ${answer['kinoko-takenoko']} に投票しました。<br>
+                       あなたの味覚は危険な状態です`
             break;
             default:
-            message = "あなたは決断できない意気地なしです"  
+            message = `${answer['name']} さんはどちらにも投票しませんでした<br>
+                       あなたは決断できない意気地なしです`  
               break;
             }
             res.write(`
@@ -40,7 +43,6 @@ const server = http.createServer((req, res) => {
                 <html lang="ja">
                   <body>
                     <h1>
-                    ${answer['name']} さんが ${answer['kinoko-takenoko']} に投稿しました。<br>
                     ${message}
                     </h1>
                   </body>
