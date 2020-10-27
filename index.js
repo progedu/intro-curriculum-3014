@@ -18,10 +18,17 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
+        // POSTで送られたデータ (yaki-shabu=%E7%84%BC%E3%81%8D%E8%82%89&name=%E3%81%AA%E3%81%AA)
+        // console.log(rawData);
+        // POSTで送られたデータをデコードする (yaki-shabu=焼き肉&name=なな)
         const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+        // console.log(decoded);
+        const qs = require('querystring');
+        // デコードしたクエリをオブジェクト形式にする { 'yaki-shabu': '焼き肉', name: 'なな' }
+        const answer = qs.parse(decoded);
+        // console.log(answer);
+        res.write(`<!DOCTYPE html><html lang="ja"><body><h1>
+          ${answer['name']}さんが${answer['yaki-shabu']}に投稿しました</h1></body></html>`);
         res.end();
       });
       break;
