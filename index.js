@@ -18,10 +18,36 @@ const server = http.createServer((req, res) => {
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
+        const qs = require('querystring');
         const decoded = decodeURIComponent(rawData);
+        const answer = qs.parse(decoded);
         console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+
+        let message = "";
+        switch (answer['kinoko-takenoko']) {
+            case 'たけのこの里':
+            message = `${answer['name']} さんが ${answer['kinoko-takenoko']} に投票しました。<br>
+                        あなたの味覚は正常です`
+            break;
+            case 'きのこの山':
+            message = `${answer['name']} さんが ${answer['kinoko-takenoko']} に投票しました。<br>
+                       あなたの味覚は危険な状態です`
+            break;
+            default:
+            message = `${answer['name']} さんはどちらにも投票しませんでした<br>
+                       あなたは決断できない意気地なしです`  
+              break;
+            }
+            res.write(`
+                <!DOCTYPE html>
+                <html lang="ja">
+                  <body>
+                    <h1>
+                    ${message}
+                    </h1>
+                  </body>
+                </html>
+                `);
         res.end();
       });
       break;
