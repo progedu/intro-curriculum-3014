@@ -22,8 +22,8 @@ const server = http.createServer((req, res) => {
 		const qs = require('querystring');
 		const answer = qs.parse(decoded);
         console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-			answer['name'] + 'さんは' + answer['yaki-shabu'] + 'に投票しました</h1></body></html>');
+        res.write('<!DOCTYPE html><html lang="ja"><body><h1 style="color:#E5A83F"><font color="#920783">' +
+			answer['name'] + 'さん</font>は<font color="#A72126">' + answer['trickortreat'] + '</font>を選びました</h1></body></html>');
         res.end();
       });
       break;
