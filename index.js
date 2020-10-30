@@ -14,15 +14,16 @@ const server = http.createServer((req, res) => {
 			rs.pipe(res);
 			break;
 		case 'POST':
-			let body = [];
+			let rawData = '';
 			req.on('data', (chunk) => {
-				body.push(chunk);
+				rawData = rawData + chunk;
 			}).on('end', () => {
-				body = Buffer.concat(body).toString();
-				const decoded = decodeURIComponent(body);
-				console.info('[' + now + '] 投稿: ' + decoded);
+				const qs = require('querystring');
+        const answer = qs.parse(rawData);
+        const body = answer['name'] + 'さんは' + answer['yaki-shabu'] + 'に投票しました';
+        console.info('[' + now + '] ' + body);
 				res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-					  decoded + 'が投稿されました</h1></body></html>');
+					body + '</h1></body></html>');
 				res.end();
 			});
 			break;
