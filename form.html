@@ -10,7 +10,12 @@
 	<form method="post" action="/enquetes/yaki-shabu">
 		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
 		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
-		<button type="submit">投稿</button>
+		<br>氏名<input type="text" name="name"/>
+		<br>年代<select name="age">
+			<option value="子供">20歳未満</option>
+			<option value="大人">20歳以上</option>
+		</select>
+		<br><button type="submit">投稿</button>
 	</form>
 </body>
 
