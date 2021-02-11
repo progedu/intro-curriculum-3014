@@ -20,9 +20,14 @@ const server = http.createServer((req, res) => {
 			}).on('end', () => {
 				body = Buffer.concat(body).toString();
 				const decoded = decodeURIComponent(body);
-				console.info('[' + now + '] 投稿: ' + decoded);
+				const qs = require('querystring');
+				const answer = qs.parse(decoded);
+				const name = answer['name'];
+				const yakishabu = answer['yaki-shabu'];
+				console.info('[' + now + '] 氏名:' + name + ',投稿: ' + yakishabu);
 				res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-					  decoded + 'が投稿されました</h1></body></html>');
+					name + 'さんは' +
+					yakishabu + 'に投票しました</h1></body></html>');
 				res.end();
 			});
 			break;
