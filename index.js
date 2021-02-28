@@ -15,13 +15,15 @@ const server = http.createServer((req, res) => {
       break;
     case 'POST':
       let rawData = '';
+      const qs = require('querystring');
       req.on('data', (chunk) => {
         rawData = rawData + chunk;
       }).on('end', () => {
         const decoded = decodeURIComponent(rawData);
+        const answer = qs.parse(decoded);
         console.info('[' + now + '] 投稿: ' + decoded);
         res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+          answer['name'] + 'さんは' + answer['yaki-shabu'] + 'に投稿しました。</h1></body></html>');
         res.end();
       });
       break;
