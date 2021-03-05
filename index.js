@@ -19,15 +19,31 @@ const server = http.createServer((req, res) => {
         rawData = rawData + chunk;
       }).on('end', () => {
         const decoded = decodeURIComponent(rawData);
-        console.info('[' + now + '] 投稿: ' + decoded);
-        res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-          decoded + 'が投稿されました</h1></body></html>');
+        console.info('[' + now + '] 投稿:' + decoded);
+       
+        let str = decoded.split('&');
+        
+         let menuitem = str[0].split('=');
+        
+         let result = menuitem[1];
+        //TODO名前を抜き出す
+        let nameitem = str[1].split('=');
+      
+        let usefulname = nameitem[1];
+
+
+
+          res.write('<!DOCTYPE html><html lang="ja"><body><h1>' + 
+          usefulname + 'が'+ result + 'に投稿しました<h1></body></html>');
+          console.log(str);
         res.end();
       });
       break;
     default:
       break;
   }
+  
+
 }).on('error', (e) => {
   console.error('[' + new Date() + '] Server Error', e);
 }).on('clientError', (e) => {
