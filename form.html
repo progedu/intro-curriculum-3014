@@ -7,9 +7,12 @@
 
 <body>
 	<h1>どちらが食べたいですか？</h1>
-	<form method="post" action="/enquetes/yaki-shabu">
-		<input type="radio" name="yaki-shabu" value="焼き肉" /> 焼き肉
-		<input type="radio" name="yaki-shabu" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+	<form method="post" action="/enquetes/food">
+		名前：<input type="text" name="name"><br>
+		<input type="radio" name="food" value="焼き肉" /> 焼き肉
+		<input type="radio" name="food" value="しゃぶしゃぶ" /> しゃぶしゃぶ
+		<input type="radio" name="food" value="寿司" />寿司
+		<br>
 		<button type="submit">投稿</button>
 	</form>
 </body>
