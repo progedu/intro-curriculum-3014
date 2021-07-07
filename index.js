@@ -20,9 +20,12 @@ const server = http.createServer((req, res) => {
 			}).on('end', () => {
 				body = Buffer.concat(body).toString();
 				const decoded = decodeURIComponent(body);
+				const postArray = decoded.split('&');
+				const name = postArray[0].split('=')[1];
+				const favo = postArray[1].split('=')[1];
 				console.info('[' + now + '] 投稿: ' + decoded);
 				res.write('<!DOCTYPE html><html lang="ja"><body><h1>' +
-					  decoded + 'が投稿されました</h1></body></html>');
+						name + 'さんが投稿したのは ' + favo + 'です。</h1></body></html>');
 				res.end();
 			});
 			break;
